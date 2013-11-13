@@ -1,0 +1,47 @@
+body {
+	margin: 0 auto;
+	background-color: black;
+}
+
+h1 {
+	font-family: 'Junge';
+	font-size: 55px;
+	display: inline-block;
+	margin: 0;
+	padding-left: 100px;
+	color: white;
+}
+
+#lockup {
+	display: inline-block;
+}
+
+#gorilla {
+	float: right;
+	display: inline-block;
+	padding-right: 200px;
+}
+
+#text {
+	width: 400px;
+	padding-left: 100px; 
+	background-color: white;
+	color: black;
+	display: inline-block;
+}
+
+#home {
+	color: #006600;
+	position: absolute;
+	top: 400px;
+	left: 200px;
+}
+
+#next {
+	color: white;
+}
+
+#back {
+	color: white;
+}
+

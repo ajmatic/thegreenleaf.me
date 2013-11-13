@@ -1,0 +1,47 @@
+body {
+	margin: 0 auto;
+}
+
+h1 {
+	font-family: 'Junge';
+	font-size: 55px;
+	display: inline-block;
+	margin: 0;
+	padding-left: 100px;
+}
+
+#lockup {
+	display: inline-block;
+}
+
+#ninja {
+	float: right;
+	display: inline-block;
+	padding-right: 200px;
+}
+
+#text {
+	width: 400px;
+	padding-left: 100px; 
+	background-color: black;
+	color: white;
+	display: inline-block;
+}
+
+#t1 {
+	background-color: #8d8d7d;
+	color: black;
+}
+
+h2 {
+	padding-left: 100px;
+	font-family: 'Junge';
+}
+
+#p2 {
+	padding-left:  100px;
+}
+
+#nav ul {
+	color: black;
+}

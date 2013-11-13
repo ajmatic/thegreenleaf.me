@@ -1,0 +1,67 @@
+#sidebar {
+	position: fixed;
+	width: 25%; 
+}
+
+
+#leaf  {
+	width: 192px;
+	height: 288px;
+}
+
+#main ul a {
+	color: #006600;
+	text-decoration: none;
+}	
+
+#main ul {	
+	list-style-type: none;
+}	
+
+#main li {	
+	line-height: 30px;
+}
+
+
+
+
+#body {
+	list-style-type: square;
+}
+
+#body ul a {
+	color: gray;
+	line-height: 50px;
+	font-size: 20px;
+}
+
+#body a:hover {
+	color: #006600;
+}	
+
+ 
+
+#lockup {
+	display: inline-block;
+}
+
+h1 {
+	font-family: 'Felipa', cursive;
+	font-size: 50px;
+	display: block;
+	vertical-align: top;
+	margin: 0;
+	color: #006600;
+	text-shadow: 1px 1px 5px #3D3D38;
+
+}
+
+
+header {
+	width: 55%;
+	margin-left: 30%;
+}
+
+
+
+
