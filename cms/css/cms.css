@@ -1,0 +1,36 @@
+body {
+	background: white;
+	color: #333;
+	font-family: "lucida grande", verdana, tahoma, sans-serif;
+	font-size: 62.5%;
+}
+
+h1 {
+	font-weight: normal;
+	font-size: 1.8em;
+	margin-left: 10em;
+}
+
+p, ul, ol {
+	font-size: 1.2em;
+	margin-left: 15em;
+}
+
+ul, ol {
+	padding-left: 2em;
+}
+
+#nav {
+	float: right;
+	width: 8em;
+	margin: 3em 0 0 0;
+	padding: 1em 2em;
+	background: #ddd;
+	border: 1px solid #ccc;
+}
+
+.message {
+	color: red;
+}
+
+

@@ -1,0 +1,32 @@
+/* Layout */
+
+
+
+#header h1 {
+	font-size: 8rem;
+	font-family: 'Love Ya Like A Sister', cursive;
+	color: #008000;
+}
+
+[class*="col-"] img {
+	max-width: 100%;
+}
+
+#leaf {
+	margin-top: 1rem;
+}
+
+.col-md-4 {
+	text-align: right;
+}
+
+#posts h2 a {
+	color: green;
+}
+
+@media screen and (max-width: 560px) {
+	#col-md-4 {
+		text-align: left;
+	}
+}
+
