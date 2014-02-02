@@ -34,42 +34,49 @@ include("functions.php");
 		<style type="text/css"> @import url(../css/blog.css); </style>
 	</head>
 	<body>
-		
+		<div class="container">
 		<?php include("header.php"); ?>
 
 		<!--this is the main part of the page -->
-		<div id="maincontent">
-			
-			<div id="posts">
-				<h2>Search Results</h2>
-				<div id="results">
-					<?php
-					if($myposts) {
-						$numresults = mysql_num_rows($result);
-						$plural1 = ($numresults==1) ? "is" : "are";
-						$plural2 = ($numresults==1) ? "" : "s";
-						echo "<p>There $plural1 <em>$numresults</em> post$plural2 matching your search for <cite>$q</cite>.</p>";
-						echo "<dl>\n";
-						do {
-							$post_id = $myposts["post_id"];
-							$title = $myposts["title"];
-							$summary = $myposts["summary"];
-						echo "<dt><a href='post.php?post_id=$post_id'>$title</a></dt>\n";
-						echo "<dd>$summary</dd>\n";
-						} while ($myposts = mysql_fetch_array($result));
-						echo "</dl>";
-					} else {
-						echo "<p>There were no posts matching your search for <cite>$q</cite>.</p>";
-					}
-					?>
+			<div id="maincontent">
+				<div class="row">
+					<div class="col-sm-9 col-md-9">
+						<div id="posts">
+							<h2>Search Results</h2>
+							<div id="results">
+								<?php
+								if($myposts) {
+									$numresults = mysql_num_rows($result);
+									$plural1 = ($numresults==1) ? "is" : "are";
+									$plural2 = ($numresults==1) ? "" : "s";
+									echo "<p>There $plural1 <em>$numresults</em> post$plural2 matching your search for <cite>$q</cite>.</p>";
+									echo "<dl>\n";
+									do {
+										$post_id = $myposts["post_id"];
+										$title = $myposts["title"];
+										$summary = $myposts["summary"];
+									echo "<dt><a href='post.php?post_id=$post_id'>$title</a></dt>\n";
+									echo "<dd>$summary</dd>\n";
+									} while ($myposts = mysql_fetch_array($result));
+									echo "</dl>";
+								} else {
+									echo "<p>There were no posts matching your search for <cite>$q</cite>.</p>";
+								}
+								?>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-3 col-md-3">
+						<div id="sidebar">
+							<?php include("searchform.php"); ?>
+						</div>
+				<!-- sidebar ends -->
+					</div>
 				</div>
+				<!--sidebar ends -->
 			</div>
-			<div id="sidebar">
-				<?php include("searchform.php"); ?>
-			</div>
-			<!--sidebar ends -->
+			<!--maincontent ends -->
+			<?php include("footer.php"); ?>
 		</div>
-		<!--maincontent ends -->
-		<?php include("footer.php"); ?>
 	</body>
 </html>

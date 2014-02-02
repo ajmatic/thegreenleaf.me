@@ -16,7 +16,7 @@ $myposts = mysql_fetch_array($result);
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 		<title>The Green Leaf</title>
-		
+		<link rel="shortcut icon" href="img/leaf.jpg" alt="green leaf favicon" />
 		<script src="https://code.jquery.com/jquery.js"></script>
 	    <!-- Include all compiled plugins (below), or include individual files as needed -->
 	    <script src="../dist/js/bootstrap.min.js"></script>
@@ -54,13 +54,16 @@ $myposts = mysql_fetch_array($result);
 							?>
 						</div>
 					</div>
-					<div class="col-sm-3 col-md-3"></div>
 					<div class="col-sm-3 col-md-3">
 						<div id="sidebar">
 							<div id="about">
 								<h3>About:</h3>
-								<p>the green leaf is a website of poems, sayings, inspiration and words. </p>
+								<p>the green leaf is a communal website of poems, sayings, movie quotes and more to help inspire and provoke. If you're a member and would like to make a post <a href="login.php">login.</a> If you'd like to become a member <a href="register.php">register</a>. </p>
 							</div>
+						</div>
+					</div>
+					<div class="col-sm-3 col-md-3">
+						
 						
 							<?php include("searchform.php"); ?>
 
@@ -82,7 +85,7 @@ $myposts = mysql_fetch_array($result);
 								}
 								?>
 							</div>
-						</div>
+						
 					</div>
 				<!--sidebar ends-->
 				</div>

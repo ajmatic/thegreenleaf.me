@@ -2,8 +2,8 @@
 //open connection to database
 include("./cms/db_connect.php");
 
-$month = (isset($_REQUEST["month"]))?$_REQUEST["month"]:"";
-$year = (isset($_REQUEST["year"]))?$_REQUEST["year"]:"";
+$month = (isset($_REQUEST["month"])) ? $_REQUEST["month"] : "";
+$year = (isset($_REQUEST["year"])) ? $_REQUEST["year"] : "";
  
 if (preg_match("/^[0-9][0-9][0-9][0-9]$/", $year) AND preg_match("/^[0-9]?[0-9]$/", $month)) {
 	//select posts for this month
@@ -36,6 +36,7 @@ include("functions.php");
 		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 		<title><?php if(isset($thismonth)) echo $thismonth; ?>
 			Archive | the green leaf blog</title>
+			<link rel="shortcut icon" href="img/leaf.jpg" alt="green leaf favicon" />
 			<script src="https://code.jquery.com/jquery.js"></script>
 	    <!-- Include all compiled plugins (below), or include individual files as needed -->
 	    <script src="../dist/js/bootstrap.min.js"></script>
@@ -47,65 +48,67 @@ include("functions.php");
 		<div class="container">
 		<?php include("header.php"); ?>
 		 <!-- this is the main part of the page -->
-		<div id="maincontent">
-			<div class="row">
-				<div class="col-sm-12 col-md-12">
-					<div id="posts">
-						<h2>
-							<?php if(isset($thismonth)) echo $thismonth; ?> 
-							Archive
-						</h2>
-						<?php 
-						switch ($showbymonth) {
-							case true:
-							if($myposts) {
-								echo "<dl>\n";
-								do {
-									$post_id = $myposts["post_id"];
-									$title = $myposts["title"];
-									$summary = $myposts["summary"];
-								echo "<dt><a href='post.php?post_id=$post_id' rel='bookmark' $title</a></dt>\n";
-								echo "<dd>$summary</dd>\n";
-								} while ($myposts = mysql_fetch_array($result));
-								echo "</dl>";
-							}
-							break;
+			<div id="maincontent">
+				<div class="row">
+					<div class="col-sm-9 col-md-9">
+						<div id="posts">
+							<h2>
+								<?php if(isset($thismonth)) echo $thismonth; ?> 
+								Archive
+							</h2>
+							<?php 
+							switch ($showbymonth) {
+								case true:
+								if($myposts) {
+									echo "<dl>\n";
+									do {
+										$post_id = $myposts["post_id"];
+										$title = $myposts["title"];
+										$summary = $myposts["summary"];
+									echo "<dt><a href='post.php?post_id=$post_id' rel='bookmark'>$title</a></dt>\n";
+									echo "<dd>$summary</dd>\n";
+									} while ($myposts = mysql_fetch_array($result));
+									echo "</dl>";
+								}
+								break;
 
-							case false:
-							$previousyear = "";
-							if($myposts) {
-								do {
-									$year = $myposts["year"];
-									$month = $myposts["month"];
-									$monthyear = $myposts["monthyear"];
-									$count = $myposts["count"];
-									if ($year != $previousyear) {
-										if ($previousyear != "") {
-											echo "</ul>\n";
+								case false:
+								$previousyear = "";
+								if($myposts) {
+									do {
+										$year = $myposts["year"];
+										$month = $myposts["month"];
+										$monthyear = $myposts["monthyear"];
+										$count = $myposts["count"];
+										if ($year != $previousyear) {
+											if ($previousyear != "") {
+												echo "</ul>\n";
+											}
+											echo "<h3>$year</h3>";
+											echo "<ul>\n";
+											$previousyear = $year;
 										}
-										echo "<h3>$year</h3>";
-										echo "<ul>\n";
-										$previousyear = $year;
-									}
-									$plural = ($count==1) ? "" : "s";
-									echo "<li><a href='archive.php?year=$year&amp;month=$month'>$monthyear</a> ($count post$plural)</li>\n";
-								} while ($myposts = mysql_fetch_array($result));
-								echo "</ul>";
+										$plural = ($count==1) ? "" : "s";
+										echo "<li><a href='archive.php?year=$year&amp;month=$month'>$monthyear</a> ($count post$plural)</li>\n";
+									} while ($myposts = mysql_fetch_array($result));
+									echo "</ul>";
+								}
+								break;
 							}
-							break;
-						}
-						?>
+							?>
+						</div>
 					</div>
-
-					<div id="sidebar">
-						<?php include("searchform.php"); ?>
+					
+					<div class="col-sm-3 col-md-3">
+						<div id="sidebar">
+							<?php include("searchform.php"); ?>
+						</div>
+				<!-- sidebar ends -->
 					</div>
-			<!-- sidebar ends -->
 				</div>
 			</div>
-		</div>
-		<!-- maincontent ends -->
-		<?php include("footer.php"); ?>
+			<!-- maincontent ends -->
+			<?php include("footer.php"); ?>
 		</div>
 	</body>
 

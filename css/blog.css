@@ -30,3 +30,19 @@
 	}
 }
 
+#about p {
+	font-size: 17px;
+}
+
+#nav {
+	float: right;
+	width: 8em;
+	margin: 3em 0 0 0;
+	padding: 1em 2em;
+	background: #ddd;
+	border: 1px solid #ccc;
+}
+
+.message {
+	color: red;
+}

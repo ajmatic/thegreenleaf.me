@@ -1,5 +1,5 @@
 <?php
-
+include($_SERVER["DOCUMENT_ROOT"] . "/cms/session.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/functions.php");
 //Open connection to database
 include("db_connect.php");
@@ -18,7 +18,8 @@ if (preg_match("/^[0-9]+$/", $delete)) {
 }
 
 //Select all posts in db
-$sql = "SELECT post_id, title, DATE_FORMAT(postdate, '%e %b %Y at %H:%i') AS dateattime FROM  posts ORDER BY post_id DESC";
+$user_id = $_SESSION["user_id"];
+$sql = "SELECT post_id, title, DATE_FORMAT(postdate, '%e %b %Y at %H:%i') AS dateattime FROM posts WHERE user_id = $user_id ORDER BY post_id DESC";
 $result = mysql_query($sql);
 $myposts = mysql_fetch_array($result);
 ?>
@@ -29,11 +30,20 @@ $myposts = mysql_fetch_array($result);
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 		<title>All blog posts - Blog CMS</title>
-		<style type="text/css"> @import url(../cms/css/cms.css); </style>
+		<link rel="shortcut icon" href="../../img/leaf.jpg" alt="green leaf favicon" />
+		<!--<script src="https://code.jquery.com/jquery.js"></script>-->
+	    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <!--<script src="../dist/js/bootstrap.min.js"></script>
+	    <link href="../dist/css/bootstrap.css" rel="stylesheet">-->
+	    <style type="text/css">@import url(http://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister);</style>
+	    <style type="text/css"> @import url(../cms/css/cms.css); </style>
 	</head>
 	<body>
+		
+		<h1>the green leaf: dashboard</h1>
+		
 		<?php include("nav.inc") ?>
-		<h1>All blog posts</h1>
+		<h2>All blog posts</h2>
 
 		<?php 
 		if (isset($message)) {

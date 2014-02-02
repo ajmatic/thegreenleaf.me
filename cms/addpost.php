@@ -1,5 +1,5 @@
 <?php
-
+include($_SERVER["DOCUMENT_ROOT"] . "/cms/session.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/functions.php");
 //If magic quotes is turned on then strip slashes
 if (get_magic_quotes_gpc()) {
@@ -14,6 +14,7 @@ $postdate = (isset($_POST["postdate"]))?$_POST["postdate"]:"";
 $summary = (isset($_POST["summary"]))?$_POST["summary"]:"";
 $post = (isset($_POST["post"]))?$_POST["post"]:"";
 $submitAdd = (isset($_POST["submitAdd"]))?$_POST["submitAdd"]:"";
+$user_id = (isset($_POST["user_id"]))?$_POST["user_id"]:"";
 
 //Open connection to database
 include("db_connect.php");
@@ -27,8 +28,8 @@ $db_post = addslashes($post);
 //If form has been submitted, insert post into database
 if ($submitAdd) {
 	$sql = "INSERT INTO posts
-		(title, postdate, summary, post)
-		VALUES ('$db_title', '$db_postdate', '$db_summary', '$db_post')";
+		(user_id, title, postdate, summary, post)
+		VALUES ('$user_id', '$db_title', '$db_postdate', '$db_summary', '$db_post')";
 	$result = mysql_query($sql);
 	if (!$result) {
 		$message = "Failed to insert post. MySQL said " . mysql_error();
@@ -97,7 +98,7 @@ if (preg_match("/^[0-9]+$/", $post_id)) {
 				break;
 			}
 			?>
-			 - BLog CMS
+			 - Blog CMS
 		</title>
 		<style type="text/css"> @import url(../cms/css/cms.css); </style>
 	</head>
@@ -140,6 +141,7 @@ if (preg_match("/^[0-9]+$/", $post_id)) {
 				</textarea>
 			</p>
 			<p>
+				<input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" >
 				<?php 
 				switch ($editmode) {
 					case true:

@@ -7,7 +7,13 @@ body {
 
 h1 {
 	font-weight: normal;
-	font-size: 1.8em;
+	font-size: 2.8em;
+	margin-left: 10em;
+}
+
+h2 {
+	font-weight: normal;
+	font-size: 2.3em;
 	margin-left: 10em;
 }
 
@@ -18,6 +24,8 @@ p, ul, ol {
 
 ul, ol {
 	padding-left: 2em;
+	line-height: 2rem;
+	font-size: 1rem;
 }
 
 #nav {
@@ -27,6 +35,8 @@ ul, ol {
 	padding: 1em 2em;
 	background: #ddd;
 	border: 1px solid #ccc;
+	line-height: 2rem;
+	font-size: 1rem;
 }
 
 .message {

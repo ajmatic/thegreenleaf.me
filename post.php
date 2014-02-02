@@ -66,6 +66,7 @@ if ($myposts) {
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 		<title>the green leaf blog</title>
+		<link rel="shortcut icon" href="img/leaf.jpg" alt="green leaf favicon" />
 		<script src="https://code.jquery.com/jquery.js"></script>
 	    <!-- Include all compiled plugins (below), or include individual files as needed -->
 	    <script src="../dist/js/bootstrap.min.js"></script>
@@ -123,27 +124,53 @@ if ($myposts) {
 							</div>
 						</div>
 					</div>
-					<div class="col-sm-6 col-md-6">
+					<div class="col-sm-3 col-md-3">
 						<div id="sidebar">
-							
-							<?php include("searchform.php"); ?>
-							<form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-								<input type="hidden" name="post_id" value="<?=$post_id ?>" />
-								<input type="hidden" name="posttitle" value="<?=$title ?>" />
-								<h3>Add a comment</h3>
-								<?php
-								if (isset($message)) {
-									echo "<p class='message'>".$_POST["message"]."</p>";
-								}
-								?>
-								<p>Name: <input name="name" type="text" /></p>
-								<p>Email: <input name="email" type="text" /></p>
-								<p>Website: <input name="website" type="text" /></p>
-								<p>Comment: <textarea name="comment" cols="25" rows="15"></textarea></p>
-								<p><input type="submit" name="postcomment" value="Post comment" /></p>
+							<h3>Add a comment</h3>
+							<form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" class="form-horizontal" role="form">
+							    <div class="form-group">
+							      <div class="col-sm-10">
+							        <input type="hidden" name="post_id" value="<?php echo $post_id; ?>" />
+									<input type="hidden" name="posttitle" value="<?php echo $title; ?>" />
+									<?php
+										if (isset($message)) {
+											echo "<p class='message'>".$_POST["message"]."</p>";
+										}
+									?>
+							      </div>
+							    </div>
+							    <div class="form-group">
+							      <div class="col-sm-10">
+							        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+							      </div>
+							    </div>
+							    <div class="form-group">
+							      <div class="col-sm-10">
+							        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+							      </div>
+							    </div>
+							    <div class="form-group">
+							      <div class="col-sm-10">
+							        <input type="text" class="form-control" id="website" name="website" placeholder="Website">
+							      </div>
+							    </div>
+							    <div class="form-group">
+							      <div class="col-sm-10">
+							        <textarea class="form-control" rows="3" id="comment" name="comment" placeholder="Comments"></textarea>
+							      </div>
+							    </div>
+							    <div class="form-group">
+							      <div class="col-sm-offset-2 col-sm-10">
+							        <button type="submit" class="btn btn-primary" name="postcomment">Submit</button>
+							        
+							      </div>
+							    </div>
 							</form>
 						</div>
 				<!--sidebar ends-->
+					</div>
+					<div class="col-sm-3 col-md-3">
+						<?php include("searchform.php"); ?>
 					</div>
 				</div>
 
