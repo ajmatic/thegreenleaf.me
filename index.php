@@ -91,6 +91,7 @@ $myposts = mysql_fetch_array($result);
 				</div>
 				
 			</div>
+			
 			<!--maincontent ends-->
 			<?php include("footer.php"); ?>
 		</div>

@@ -17,10 +17,11 @@ if (isset($_POST["submit"]) && "1" === $_POST["submit"]) {
   
   if (!password_verify($password, $user["password"])) {
       $message = "Incorrect email or password";
-  } 
-  $_SESSION["logged_in"] = true;
-  $_SESSION["user_id"] = $user["user_id"];
-  header("Location: /cms");
+  } else {
+    $_SESSION["logged_in"] = true;
+    $_SESSION["user_id"] = $user["user_id"];
+    header("Location: /cms");
+  }
 }
 ?>
 <!doctype>

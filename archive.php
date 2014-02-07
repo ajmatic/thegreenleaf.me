@@ -48,6 +48,7 @@ include("functions.php");
 		<div class="container">
 		<?php include("header.php"); ?>
 		 <!-- this is the main part of the page -->
+		 
 			<div id="maincontent">
 				<div class="row">
 					<div class="col-sm-9 col-md-9">
@@ -107,6 +108,7 @@ include("functions.php");
 					</div>
 				</div>
 			</div>
+			
 			<!-- maincontent ends -->
 			<?php include("footer.php"); ?>
 		</div>
