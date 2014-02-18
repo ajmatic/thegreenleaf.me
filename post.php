@@ -64,7 +64,8 @@ if ($myposts) {
 	"http://www.w3.org/TR/xhtml1DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
-		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
 		<title>the green leaf blog</title>
 		<link rel="shortcut icon" href="img/leaf.jpg" alt="green leaf favicon" />
 		<script src="https://code.jquery.com/jquery.js"></script>
